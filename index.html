@@ -25,8 +25,9 @@
   <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
   <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
 
-  <!-- Main CSS File -->
+  <!-- CSS Files -->
   <link href="assets/css/main.css" rel="stylesheet">
+  <link href="assets/css/custom.css" rel="stylesheet">
 
   <!-- =======================================================
   * Template Name: SnapFolio
@@ -608,35 +609,64 @@
     <!-- Services Section -->
     <section id="services" class="services section">
 
-      <!-- Section Title -->
-      <div class="container section-title" data-aos="fade-up">
-        <h2>Services</h2>
-         <h3>Video paslauga</h3>
-  <video controls width="640">
-    <!-- čia failo pavadinimas turi sutapti su tuo, kurį išsaugosi -->
-    <source src="assets/media/person-typing.mp4" type="video/mp4">
-    Jūsų naršyklė nepalaiko video žymos.
-  </video>
+  <!-- Section Title -->
+  <div class="container section-title" data-aos="fade-up">
+    <h2>Services</h2>
 
-  <!-- b) YouTube įrašas per iframe -->
-  <h3>YouTube įrašas</h3>
-  <iframe width="560" height="315" 
-    src="https://www.youtube.com/embed/BoUVIhtqjAw?si=b36uXWcu3dStNtGn" 
-    title="YouTube video player" 
-    frameborder="0" 
-    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-    referrerpolicy="strict-origin-when-cross-origin" 
-    allowfullscreen>
-  </iframe>
+    <h3>Video paslauga</h3>
+    <video controls width="640">
+      <source src="assets/media/person-typing.mp4" type="video/mp4">
+      Jūsų naršyklė nepalaiko video žymos.
+    </video>
 
-  <!-- c) Garso įrašas iš failo -->
-  <h3>Garso paslauga</h3>
-  <audio controls>
-    <!-- čia – atsisiųsto garso failo pavadinimas -->
-    <source src="assets/media/clock-ticking.mp3" type="audio/mpeg">
-    Jūsų naršyklė nepalaiko audio žymos.
-  </audio>
-    </section><!-- /Services Section -->
+    <h3>YouTube įrašas</h3>
+    <iframe width="560" height="315" 
+      src="https://www.youtube.com/embed/BoUVIhtqjAw?si=b36uXWcu3dStNtGn"
+      title="YouTube video player"
+      frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      referrerpolicy="strict-origin-when-cross-origin"
+      allowfullscreen>
+    </iframe>
+
+    <h3>Garso paslauga</h3>
+    <audio controls>
+      <source src="assets/media/clock-ticking.mp3" type="audio/mpeg">
+      Jūsų naršyklė nepalaiko audio žymos.
+    </audio>
+  </div>
+
+  <!-- ČIA – paslaugų lentelė 4×3 -->
+  <div class="container" data-aos="fade-up" data-aos-delay="100">
+    <table class="services-table">
+      <thead>
+        <tr>
+          <th>Paslauga</th>
+          <th>Aprašymas</th>
+          <th>Kaina</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Tinklalapių programavimas</td>
+          <td>Asmeninių ir verslo svetainių kūrimas nuo nulio</td>
+          <td>100 €</td>
+        </tr>
+        <tr>
+          <td>Svetainės dizainas</td>
+          <td>UI/UX dizainas ir prototipai</td>
+          <td>80 €</td>
+        </tr>
+        <tr>
+          <td>Techninė priežiūra</td>
+          <td>Saugumo atnaujinimai ir turinio keitimai</td>
+          <td>50 € / mėn.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+</section>
 
     <!-- Testimonials Section -->
     <section id="testimonials" class="testimonials section light-background">

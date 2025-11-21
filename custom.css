@@ -1,0 +1,611 @@
+/* =========================================================
+   2. TIPOGRAFIJA – ŠRIFTŲ STILIAI
+   ======================================================== */
+
+/* Bendras svetainės šriftas */
+body {
+  font-family: "Nunito", "Roboto", system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", sans-serif;
+  font-size: 16px;
+  line-height: 1.7;
+  color: #1f2933;
+  background-color: #f3f4f6;
+}
+
+/* Antraščių stiliai: skirtingi dydžiai, spalvos, svoriai ir tarpai */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Ubuntu", system-ui, sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: #facc15;
+  margin-bottom: 0.6rem;
+}
+
+h1 {
+  font-size: clamp(2.6rem, 3vw, 3rem);
+  line-height: 1.1;
+}
+
+h2 {
+  font-size: 2.1rem;
+  line-height: 1.15;
+}
+
+h3 {
+  font-size: 1.6rem;
+  line-height: 1.2;
+}
+
+h4 {
+  font-size: 1.3rem;
+  line-height: 1.25;
+}
+
+h5 {
+  font-size: 1.1rem;
+  line-height: 1.3;
+}
+
+h6 {
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  color: #0f766e;
+  letter-spacing: 0.18em;
+}
+
+/* Pagrindinių pastraipų stilius – kitoks nei šablone */
+p {
+  margin-bottom: 1rem;
+  color: #4b5563;
+  font-weight: 400;
+}
+
+/* Sekcijų pavadinimai */
+.section-title h2 {
+  font-size: 2rem;
+  text-transform: none;
+  position: relative;
+  display: inline-block;
+  padding-bottom: 0.4rem;
+  color: #facc15; /* geltona sekcijų pavadinimams */
+}
+
+.section-title h2::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 48px;
+  height: 3px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #0f766e, #22c55e);
+}
+
+/* Maža „badge“ juostelė (pvz. Apie mane) */
+.badge-text {
+  font-size: 0.8rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #0f766e;
+}
+
+
+/* =========================================================
+   3. MYGTUKAI IR NUORODOS
+   ======================================================== */
+
+/* Nuorodų stiliai */
+a {
+  color: #0f766e;
+  text-decoration: none;
+  transition:
+    color 0.2s ease,
+    text-shadow 0.2s ease,
+    background-position 0.2s ease;
+  background-image: linear-gradient(90deg, #0f766e, #22c55e);
+  background-size: 0 2px;
+  background-repeat: no-repeat;
+  background-position: 0 100%;
+}
+
+a:hover,
+a:focus {
+  color: #14b8a6;
+  text-shadow: 0 0 1px rgba(20, 184, 166, 0.5);
+  background-size: 100% 2px;
+}
+
+a:active {
+  color: #0d9488;
+}
+
+/* Navigacijos meniu nuorodos */
+.header .navmenu a {
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+}
+
+.header .navmenu a:hover,
+.header .navmenu a:focus,
+.header .navmenu a.active {
+  color: #38bdf8;
+}
+
+/* Bendras mygtukų stilius */
+.btn,
+.php-email-form button.btn,
+.hero-actions .btn {
+  font-family: "Ubuntu", system-ui, sans-serif;
+  border-radius: 999px;
+  padding: 0.7rem 1.9rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  border-width: 0;
+  transition:
+    transform 0.18s ease,
+    box-shadow 0.18s ease,
+    background 0.18s ease,
+    color 0.18s ease;
+}
+
+/* Pagrindinis (užpildytas) mygtukas */
+.btn-primary {
+  background: linear-gradient(135deg, #0f766e, #22c55e);
+  color: #f9fafb;
+  box-shadow: 0 14px 32px rgba(15, 118, 110, 0.4);
+}
+
+.btn-primary:hover,
+.btn-primary:focus {
+  background: linear-gradient(135deg, #115e59, #16a34a);
+  transform: translateY(-1px);
+  box-shadow: 0 18px 40px rgba(15, 118, 110, 0.55);
+}
+
+.btn-primary:active {
+  transform: translateY(0);
+  box-shadow: 0 4px 16px rgba(15, 118, 110, 0.6);
+}
+
+/* Kontūrinis mygtukas */
+.btn-outline {
+  background: transparent;
+  border: 2px solid #0f766e;
+  color: #0f766e;
+}
+
+.btn-outline:hover,
+.btn-outline:focus {
+  background: #0f766e;
+  color: #f9fafb;
+  box-shadow: 0 12px 28px rgba(15, 118, 110, 0.35);
+  transform: translateY(-1px);
+}
+
+.btn-outline:active {
+  transform: translateY(0);
+  box-shadow: 0 4px 14px rgba(15, 118, 110, 0.45);
+}
+
+/* Kontaktų formos mygtukas */
+.php-email-form button.btn {
+  margin-top: 0.5rem;
+}
+
+
+/* =========================================================
+   4. IŠDĖSTYMAS IR BLOKŲ IZVAIZDA
+   ======================================================== */
+
+/* Vienodi tarpai tarp pagrindinių sekcijų About, Resume, Portfolio */
+#about.section,
+#resume.section,
+#portfolio.section {
+  padding-top: 100px;
+  padding-bottom: 100px;
+}
+
+/* Šiek tiek daugiau „kvėpavimo“ viduje */
+#about .row,
+#resume .row,
+#portfolio .row {
+  row-gap: 2.5rem;
+}
+
+/* Bendra kortelių / blokų stilistika */
+.profile-card,
+.skills-category,
+.resume-side,
+.resume-section,
+.portfolio-wrap,
+.testimonial-item,
+.info-box,
+.contact-form,
+.stats-wrapper {
+  background-color: #facc15; /* geltonas fonas vietoj baltos */
+  border-radius: 18px;
+  border: 1px solid rgba(148, 163, 184, 0.25);
+  box-shadow: 0 18px 40px rgba(15, 23, 42, 0.07);
+}
+
+
+/* Vidiniai tarpai kortelėms */
+.profile-card,
+.skills-category,
+.resume-side,
+.resume-section,
+.testimonial-item,
+.info-box,
+.contact-form {
+  padding: 1.8rem;
+}
+
+/* Portfolio kortelių „hover“ efektas */
+.portfolio-wrap {
+  overflow: hidden;
+  transform: translateY(0);
+  transition:
+    transform 0.22s ease,
+    box-shadow 0.22s ease;
+}
+
+.portfolio-wrap:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 22px 40px rgba(15, 23, 42, 0.25);
+}
+
+/* Resume šoninė juosta – kiek labiau išryškinama */
+.resume-side {
+  position: sticky;
+  top: 100px;
+}
+
+
+/* =========================================================
+   5. DU PASIRINKTI KOMPONENTAI:
+      A) STATS
+      B) TESTIMONIALS
+   ======================================================== */
+
+/* A) STATS sekcija */
+#stats.section {
+  padding-top: 80px;
+  padding-bottom: 80px;
+}
+
+/* Stats „kortelių“ konteineris – spalvotas fonas */
+.stats-wrapper {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1.8rem;
+  padding: 2.5rem 2rem;
+  background: radial-gradient(circle at top left, #0f766e, #020617);
+  border-radius: 24px;
+  border: none;
+  box-shadow: 0 24px 50px rgba(15, 23, 42, 0.45);
+}
+
+/* Viena statistikos kortelė */
+.stats-item {
+  text-align: center;
+  color: #e5e7eb;
+}
+
+.stats-item .icon-wrapper {
+  width: 56px;
+  height: 56px;
+  margin: 0 auto 0.7rem auto;
+  border-radius: 999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(circle at 30% 0, #22c55e, #0f766e);
+  box-shadow: 0 12px 32px rgba(15, 148, 136, 0.55);
+}
+
+.stats-item .icon-wrapper i {
+  font-size: 1.6rem;
+}
+
+.stats-item span.purecounter {
+  display: block;
+  font-size: 1.8rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+}
+
+.stats-item p {
+  margin-top: 0.25rem;
+  font-size: 0.85rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+/* B) TESTIMONIALS sekcija */
+#testimonials.section {
+  padding-top: 90px;
+  padding-bottom: 90px;
+}
+
+/* Kiek mažesnis tarpas tarp „plytelių“ */
+.testimonial-masonry {
+  gap: 1.4rem;
+}
+
+/* Pagrindinė atsiliepimo kortelė */
+.testimonial-item {
+  position: relative;
+  padding: 2rem 2.2rem;
+  background: linear-gradient(135deg, #0f172a, #1d4ed8);
+  color: #e5e7eb;
+  border-radius: 22px;
+  border: 1px solid rgba(148, 163, 184, 0.55);
+}
+
+.testimonial-item.highlight {
+  background: linear-gradient(135deg, #0f172a, #0f766e);
+}
+
+/* Kabutės */
+.testimonial-item .quote-pattern {
+  position: absolute;
+  top: 1.3rem;
+  right: 1.8rem;
+  font-size: 2.2rem;
+  opacity: 0.16;
+}
+
+/* Tekstas */
+.testimonial-item p {
+  font-style: italic;
+  font-size: 0.98rem;
+  margin-bottom: 1.4rem;
+}
+
+/* Kliento info */
+.testimonial-item .client-info {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+}
+
+.testimonial-item .client-image img {
+  width: 52px;
+  height: 52px;
+  border-radius: 999px;
+  object-fit: cover;
+  border: 2px solid rgba(148, 163, 184, 0.85);
+}
+
+.testimonial-item .client-details h3 {
+  font-size: 1rem;
+  margin-bottom: 0.1rem;
+}
+
+.testimonial-item .client-details .position {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  opacity: 0.85;
+}
+
+/* Lengvas hover efektas atsiliepimams */
+.testimonial-item:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 22px 45px rgba(15, 23, 42, 0.55);
+  transition:
+    transform 0.22s ease,
+    box-shadow 0.22s ease;
+}
+
+
+/* =========================================================
+   SMULKŪS PAPILDOMI PATOBULINIMAI
+   ======================================================== */
+
+/* „About“ profilio kortelė */
+.profile-card .profile-header {
+  margin-bottom: 1.3rem;
+}
+
+.profile-card .profile-image img {
+  border-radius: 18px;
+}
+
+.profile-card .profile-badge {
+  position: absolute;
+}
+
+/* Kontaktų dėžutės vidiniai elementai */
+.info-box .info-item + .info-item {
+  margin-top: 1.2rem;
+}
+
+/* Kontaktų piktogramos */
+.info-item .icon-box {
+  width: 42px;
+  height: 42px;
+  border-radius: 999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(15, 118, 110, 0.1);
+}
+
+/* Kontaktų formos laukeliai */
+.contact-form .form-control {
+  border-radius: 12px;
+  border: 1px solid rgba(148, 163, 184, 0.6);
+  box-shadow: none;
+}
+
+.contact-form .form-control:focus {
+  border-color: #0f766e;
+  box-shadow: 0 0 0 2px rgba(34, 197, 94, 0.25);
+}
+
+/* =========================================================
+   1. SĄRAŠŲ (LIST) KOMPONENTŲ STILIAI
+   ======================================================== */
+
+/* Bendri ul/ol nustatymai tik pagrindiniame turinyje (nenulaužom meniu) */
+.main ul,
+.main ol {
+  margin-left: 0;
+  padding-left: 0;
+}
+
+/* --- Nenumeruotas sąrašas (UL) su pseudo-elementais kaip ženkliukais --- */
+.main ul {
+  list-style: none;
+}
+
+.main ul li {
+  position: relative;
+  padding-left: 2rem;
+  margin-bottom: 0.4rem;
+}
+
+.main ul li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.5rem;
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  border: 2px solid #facc15;               /* geltonas kontūras */
+  box-shadow: 0 0 0 2px rgba(250, 204, 21, 0.25);
+}
+
+/* --- Sąrašas sąraše (Nested List) – kitoks stilius vidiniams punktams --- */
+.main ul ul {
+  margin-top: 0.2rem;
+}
+
+.main ul ul li {
+  padding-left: 1.6rem;
+  font-size: 0.9rem;
+  opacity: 0.9;
+}
+
+.main ul ul li::before {
+  width: 8px;
+  height: 8px;
+  border-radius: 4px;
+  border: none;
+  background: #0f172a;                      /* tamsus užpildas */
+  box-shadow: 0 0 0 2px rgba(15, 23, 42, 0.35);
+}
+
+/* --- Numeruotas sąrašas (OL) su CSS counter'iais --- */
+.main ol {
+  list-style: none;
+  counter-reset: numeruotas;                /* pradedame skaičiuoti */
+}
+
+.main ol li {
+  position: relative;
+  padding-left: 2.4rem;
+  margin-bottom: 0.5rem;
+}
+
+.main ol li::before {
+  counter-increment: numeruotas;
+  content: counter(numeruotas) ".";
+  position: absolute;
+  left: 0;
+  top: 0.15rem;
+  width: 1.8rem;
+  height: 1.8rem;
+  border-radius: 999px;
+  background: #0f172a;
+  color: #facc15;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 0.9rem;
+  box-shadow: 0 8px 18px rgba(15, 23, 42, 0.45);
+}
+
+/* Jei turėsi numeruotą sąrašą sąraše (nested OL) – šiek tiek mažesni numeriai */
+.main ol ol li::before {
+  font-size: 0.75rem;
+  width: 1.4rem;
+  height: 1.4rem;
+}
+
+
+/* =========================================================
+   2. SERVICES SEKCJOS LENTELĖ (4×3)
+   ======================================================== */
+
+/* Lentelės bendras stilius – pritaikyk klasei ar bet kuriai lentelei #services */
+#services .services-table,
+#services table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1.5rem;
+  overflow: hidden;
+  border-radius: 18px;
+  background: #020617;
+  box-shadow: 0 20px 40px rgba(15, 23, 42, 0.6);
+}
+
+/* Antraštinė eilutė (Header Row) – turi aiškiai išsiskirti */
+#services .services-table thead tr,
+#services table thead tr {
+  background: linear-gradient(135deg, #0f172a, #0f766e);
+}
+
+#services .services-table th,
+#services table th {
+  padding: 0.9rem 1.2rem;          /* vienodi laukų užpildai */
+  text-align: center;              /* turinys centre */
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  font-size: 0.8rem;
+  color: #f9fafb;
+  border-bottom: 1px solid rgba(148, 163, 184, 0.6);
+}
+
+/* Paprastos eilutės (tbody) */
+#services .services-table td,
+#services table td {
+  padding: 0.85rem 1.2rem;         /* tas pats padding visiems laukams */
+  text-align: center;              /* turinys centre – pagal reikalavimą */
+  font-size: 0.9rem;
+  color: #e5e7eb;
+  border-bottom: 1px solid rgba(30, 64, 175, 0.35);
+}
+
+/* Zebra stilius eilutėms */
+#services .services-table tbody tr:nth-child(odd),
+#services table tbody tr:nth-child(odd) {
+  background-color: rgba(15, 23, 42, 0.95);
+}
+
+#services .services-table tbody tr:nth-child(even),
+#services table tbody tr:nth-child(even) {
+  background-color: rgba(15, 23, 42, 0.8);
+}
+
+/* Hover efektas eilutėms */
+#services .services-table tbody tr:hover,
+#services table tbody tr:hover {
+  background-color: rgba(15, 118, 110, 0.65);
+  transform: translateY(-1px);
+  transition:
+    background-color 0.15s ease,
+    transform 0.15s ease;
+}
