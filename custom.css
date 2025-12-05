@@ -369,6 +369,7 @@ a:active {
   font-style: italic;
   font-size: 0.98rem;
   margin-bottom: 1.4rem;
+  color: yellowgreen;
 }
 
 /* Kliento info */
@@ -423,6 +424,91 @@ a:active {
 
 .profile-card .profile-badge {
   position: absolute;
+}
+
+/* CSS FIGŪROS ABOUT SEKCIJOS PROFILIO KORTELĖJE */
+
+/* Kad kortelė taptų „konteineriu“ figūroms */
+#about .profile-card {
+  position: relative;
+  overflow: hidden; /* kad figūros neišlįstų už kraštų */
+}
+
+/* Bendra figūrų sritis – užima visą kortelę */
+#about .about-shapes {
+  position: absolute;
+  inset: 0;               /* viršus, apačia, kairė, dešinė = 0 */
+  pointer-events: none;   /* kad netrukdytų spausti mygtukų */
+  z-index: 0;
+}
+
+#about .about-shapes .shape {
+  position: absolute;
+  opacity: 0.4;
+}
+
+/* Apskritimas */
+#about .shape-circle {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  border: 4px solid rgba(250, 204, 21, 0.9);
+  top: 5%;
+  left: 5%;
+  animation: aboutFloat 8s ease-in-out infinite;
+}
+
+/* Trikampis */
+#about .shape-triangle {
+  width: 0;
+  height: 0;
+  border-left: 40px solid transparent;
+  border-right: 40px solid transparent;
+  border-bottom: 70px solid rgba(34, 197, 94, 0.75);
+  bottom: 10%;
+  right: 8%;
+  animation: aboutRotate 14s linear infinite;
+}
+
+/* Kvadratas */
+#about .shape-square {
+  width: 50px;
+  height: 50px;
+  border-radius: 16px;
+  background: rgba(56, 189, 248, 0.8);
+  top: 40%;
+  right: 20%;
+  animation: aboutScaleFloat 10s ease-in-out infinite;
+}
+
+/* Animacijos: plaukiojimas */
+@keyframes aboutFloat {
+  0%, 100% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(10px, -18px);
+  }
+}
+
+/* Sukimasis */
+@keyframes aboutRotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Plaukiojimas + dydžio keitimas */
+@keyframes aboutScaleFloat {
+  0%, 100% {
+    transform: translateY(0) scale(1);
+  }
+  50% {
+    transform: translateY(-12px) scale(1.2);
+  }
 }
 
 /* Kontaktų dėžutės vidiniai elementai */
@@ -608,4 +694,302 @@ a:active {
   transition:
     background-color 0.15s ease,
     transform 0.15s ease;
+}
+/* =========================================================
+   ANIMACIJOS: SEKCIJŲ FADE-IN IR SOCIAL IKONŲ FLOAT
+   ======================================================== */
+
+/* Sekcijų pasirodymas (fade-in + švelnus pakilimas) */
+@keyframes sectionFadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Pritaikome pagrindinėms sekcijoms */
+#hero,
+#about,
+#resume,
+#portfolio,
+#services,
+#contact {
+  animation: sectionFadeInUp 2.0s ease-out both;
+}
+
+/* Social ikonų lengvas „plaukiojimas“ */
+@keyframes socialFloat {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+/* Social nuorodos (hero/footer) */
+.social-links a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  animation: socialFloat 3s ease-in-out infinite;
+}
+
+/* Nedidelė animacijos fazių įvairovė */
+.social-links a:nth-child(2) {
+  animation-delay: 0.3s;
+}
+.social-links a:nth-child(3) {
+  animation-delay: 0.6s;
+}
+.social-links a:nth-child(4) {
+  animation-delay: 0.9s;
+}
+/* =========================================================
+   PUSLAPIO KROVIMO ANIMACIJA (PRELOADER)
+   ======================================================== */
+
+#preloader {
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(circle at top, #0f172a, #020617);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+.preloader-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+/* Sukantis apskritimas (spinner) */
+.preloader-spinner {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  border: 4px solid rgba(148, 163, 184, 0.4);
+  border-top-color: #facc15;
+  border-right-color: #22c55e;
+  animation: preloaderSpin 0.9s linear infinite;
+}
+
+@keyframes preloaderSpin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Pulsuojantys taškai */
+.preloader-dots {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.preloader-dots span {
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  background: #facc15;
+  opacity: 0.2;
+  animation: preloaderDots 1s ease-in-out infinite;
+}
+
+.preloader-dots span:nth-child(2) {
+  animation-delay: 0.15s;
+}
+
+.preloader-dots span:nth-child(3) {
+  animation-delay: 0.3s;
+}
+
+@keyframes preloaderDots {
+  0%, 100% {
+    transform: translateY(0);
+    opacity: 0.2;
+  }
+  50% {
+    transform: translateY(-6px);
+    opacity: 1;
+  }
+}
+
+/* Būsena, kai preloader turi pasislėpti */
+#preloader.preloader-hide {
+  opacity: 0;
+  visibility: hidden;
+  transition:
+    opacity 0.4s ease,
+    visibility 0.4s ease;
+}
+/* =========================================================
+   PREFERS-REDUCED-MOTION – sumažiname judesius
+   ======================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  /* Preloader visiškai nenaudojamas */
+  #preloader {
+    display: none !important;
+  }
+}
+/* =========================================================
+   SERVICES SEKCJOS ANIMUOTAS GRADIENTINIS FONAS
+   ======================================================== */
+
+#services {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, #0f172a, #0f766e, #22c55e, #0ea5e9);
+  background-size: 300% 300%;
+  animation: servicesGradientMove 8s ease infinite;
+}
+
+/* Kad vidus būtų virš fono */
+#services .container {
+  position: relative;
+  z-index: 1;
+}
+
+/* Tamsinantis sluoksnis, kad tekstas būtų aiškiai skaitomas */
+#services::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at top, rgba(15,23,42,0.3), rgba(15,23,42,0.85));
+  z-index: 0;
+}
+/* REALI ANIMACIJA – JUDINAM GRADIENTO POZICIJĄ */
+@keyframes servicesGradientMove {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.contact-form .form-control.is-invalid {
+  border-color: #ef4444;
+  box-shadow: 0 0 0 1px rgba(239, 68, 68, 0.5);
+}
+
+.contact-form .field-error {
+  color: #fecaca;
+  font-size: 0.8rem;
+  margin-top: 0.25rem;
+  min-height: 1em;
+}
+
+.contact-result-card {
+  margin-top: 1.5rem;
+}
+/* =========================================================
+   MANO ŽAIDIMAS – ATMINTIES KORTELIŲ LENTA
+   ======================================================== */
+
+#memory-game .game-controls h3 {
+  font-size: 1.3rem;
+  margin-bottom: 0.5rem;
+}
+
+#memory-game .game-stats p {
+  margin-bottom: 0.15rem;
+}
+
+.game-message {
+  font-weight: 700;
+  min-height: 1.5rem;
+}
+
+/* Žaidimo lenta */
+.game-board {
+  display: grid;
+  gap: 0.75rem;
+  justify-content: center;
+}
+
+.game-board.easy-grid {
+  grid-template-columns: repeat(4, minmax(70px, 1fr)); /* 4x3 */
+}
+
+.game-board.hard-grid {
+  grid-template-columns: repeat(6, minmax(60px, 1fr)); /* 6x4 */
+}
+
+/* Kortelės */
+.memory-card {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  border: none;
+  padding: 0;
+  background: transparent;
+  cursor: pointer;
+  perspective: 800px;
+}
+
+.memory-card .card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: transform 0.3s ease;
+}
+
+.memory-card.flipped .card-inner,
+.memory-card.matched .card-inner {
+  transform: rotateY(180deg);
+}
+
+.card-face {
+  position: absolute;
+  inset: 0;
+  border-radius: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backface-visibility: hidden;
+  border: 2px solid #4b5563;
+}
+
+/* Priekinė pusė (kai kortelė užversta) */
+.card-front {
+  background: #020617;
+}
+
+/* Galinė pusė su simboliu */
+.card-back {
+  background: #facc15;
+  color: #111827;
+  font-size: 2rem;
+  font-weight: 700;
+  transform: rotateY(180deg);
+}
+
+/* Sutapusios poros išryškinimas */
+.memory-card.matched .card-back {
+  background: #4ade80;
+  color: #052e16;
+}
+
+/* Kad pasyvi kortelė nesikeistų ant hover */
+.memory-card.matched {
+  cursor: default;
 }
